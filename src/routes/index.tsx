@@ -197,7 +197,7 @@ function Home() {
           <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <Eyebrow>Handpicked this month</Eyebrow>
-              <Lines text={["UPCOMEING EVENTS"]} className="text-[9vw] md:text-[4.4vw] xl:text-[64px]" />
+              <Lines text={["UPCOMING EVENTS"]} className="text-[9vw] md:text-[4.4vw] xl:text-[64px]" />
               <p data-reveal className="mt-2 text-sm text-muted-foreground md:text-base">Experiences worth showing up for.</p>
             </div>
             <Link to="/events" className="group inline-flex items-center gap-2 self-start border-b-2 border-primary pb-1 text-[12px] font-bold uppercase tracking-[0.16em] md:self-auto">
