@@ -119,7 +119,7 @@ function Home() {
             </Link>
           </div>
 
-          <div className="grid gap-x-5 gap-y-8 md:grid-cols-12">
+          <div className="mx-auto grid max-w-[890px] gap-x-5 gap-y-8 md:grid-cols-12">
             {featured.map((e, i) => {
               const span = ["md:col-span-5", "md:col-span-4 md:mt-14", "md:col-span-4", "md:col-span-4 md:mt-10", "md:col-span-4 md:-mt-6"][i];
               const ratio = ["aspect-[4/3]", "aspect-[4/5]", "aspect-[4/5]", "aspect-square", "aspect-[4/5]"][i];
