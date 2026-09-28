@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { ArrowRight, ArrowUpRight, BadgeCheck, MapPin } from "lucide-react";
 import { Hero } from "@/components/site/Hero";
 import { useScrollMotion } from "@/components/site/motion";
-import { categories, events, live, stories, people, cities, formatPrice } from "@/lib/data";
+import { categories, events, live, stories, people, cities, whatsNext, news, upcoming, formatPrice } from "@/lib/data";
 import indiaMap from "@/assets/india-map.jpg";
 import secSports from "@/assets/sec-sports.jpg";
 import secArts from "@/assets/sec-arts.jpg";
@@ -65,6 +65,92 @@ function Home() {
           )}
         </div>
       </div>
+
+      {/* NEWS */}
+      <section className="mx-auto max-w-[1480px] px-5 py-12 md:px-8 md:py-16">
+        <div className="mb-8 flex items-end justify-between gap-4 border-b-2 border-foreground pb-5">
+          <div>
+            <Eyebrow>The latest from the scene</Eyebrow>
+            <Lines text={["News"]} className="text-[10vw] md:text-[3.2vw] xl:text-[48px]" />
+          </div>
+          <Link to="/news" className="group inline-flex shrink-0 items-center gap-2 border-b-2 border-primary pb-1 text-[12px] font-bold uppercase tracking-[0.16em]">
+            More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3 lg:grid-cols-5">
+          {news.map((s, i) => (
+            <Link key={s.slug} to="/news" data-reveal className={`group block ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}>
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                <img src={s.img} alt={s.title} width={s.w} height={s.h} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+              </div>
+              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">{s.category} · {s.date}</p>
+              <h3 className="mt-1.5 text-sm font-bold leading-snug group-hover:text-primary md:text-base">{s.title}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* WHAT'S NEXT */}
+      <section className="border-t bg-card py-12 md:py-16">
+        <div className="mx-auto max-w-[1480px] px-5 md:px-8">
+          <div className="mb-8 flex items-end justify-between gap-4 border-b-2 border-foreground pb-5">
+            <div>
+              <Eyebrow>On the horizon</Eyebrow>
+              <Lines text={["What's next"]} className="text-[10vw] md:text-[3.2vw] xl:text-[48px]" />
+            </div>
+            <Link to="/events" className="group inline-flex shrink-0 items-center gap-2 border-b-2 border-primary pb-1 text-[12px] font-bold uppercase tracking-[0.16em]">
+              More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3 lg:grid-cols-5">
+            {whatsNext.map(({ label, event, meta }, i) => (
+              <Link key={event.slug} to="/event/$slug" params={{ slug: event.slug }} data-reveal className={`group block ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}>
+                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                  <img src={event.img} alt={event.name} width={event.w} height={event.h} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+                  <span className="absolute left-3 top-3 bg-background px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em]">{label}</span>
+                </div>
+                <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">{event.category} · {meta}</p>
+                <h3 className="mt-1 font-display text-base leading-snug md:text-lg">{event.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{event.venue}, {event.city}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* UPCOMING EVENTS (top) */}
+      <section className="border-t py-12 md:py-16">
+        <div className="mx-auto max-w-[1480px] px-5 md:px-8">
+          <div className="mb-8 flex items-end justify-between gap-4 border-b-2 border-foreground pb-5">
+            <div>
+              <Eyebrow>Mark the calendar</Eyebrow>
+              <Lines text={["Upcoming events"]} className="text-[10vw] md:text-[3.2vw] xl:text-[48px]" />
+            </div>
+            <Link to="/events" className="group inline-flex shrink-0 items-center gap-2 border-b-2 border-primary pb-1 text-[12px] font-bold uppercase tracking-[0.16em]">
+              More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3 lg:grid-cols-5">
+            {upcoming.map((e, i) => (
+              <Link key={e.slug} to="/event/$slug" params={{ slug: e.slug }} data-reveal className={`group block ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}>
+                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                  <img src={e.img} alt={e.name} width={e.w} height={e.h} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
+                  <span className="absolute left-3 top-3 bg-background px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em]">{e.category}</span>
+                </div>
+                <div className="mt-3 flex items-start justify-between gap-3 border-t border-foreground pt-3">
+                  <div className="min-w-0">
+                    <h3 className="font-display text-base leading-snug md:text-lg">{e.name}</h3>
+                    <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <MapPin className="h-3 w-3 shrink-0" /> {e.city} · {e.date}
+                    </p>
+                  </div>
+                  <p className="shrink-0 font-display text-base text-primary">{formatPrice(e.price)}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CATEGORIES */}
       <section className="mx-auto max-w-[1480px] px-5 py-6 md:px-8 md:py-10">

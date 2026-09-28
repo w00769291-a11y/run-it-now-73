@@ -58,6 +58,10 @@ export const events: SacEvent[] = [
   { slug: "isl-derby-night", name: "Kolkata Derby Night", category: "Sports", city: "Kolkata", state: "West Bengal", venue: "Salt Lake Stadium", date: "Today", time: "07:30 PM", price: 349, img: liveFootball, w: 768, h: 1024, mode: "Offline", organizer: "Bengal Football Assoc.", description: "The rivalry that stops a city. Floodlights, rain or shine." },
   { slug: "deepotsav-street-festival", name: "Deepotsav Street Festival", category: "Festivals", city: "Jaipur", state: "Rajasthan", venue: "Johari Bazaar", date: "Tonight", time: "06:00 PM", price: 0, img: liveDiwali, w: 768, h: 1024, mode: "Offline", organizer: "Pink City Collective", description: "A night market of lamps, lanterns, sweets and music through the old city." },
   { slug: "pro-kabaddi-playoffs", name: "Kabaddi League Playoffs", category: "Sports", city: "Pune", state: "Maharashtra", venue: "Balewadi Sports Complex", date: "18 Oct 2026", time: "08:00 PM", price: 249, img: liveKabaddi, w: 768, h: 1024, mode: "Offline", organizer: "Kabaddi Pro Circuit", description: "Raids, tackles and super-tens as the top four fight for the final." },
+  { slug: "goa-sunset-music-run", name: "Goa Sunset Music Run", category: "Music", city: "Panaji", state: "Goa", venue: "Miramar Beach", date: "08 Nov 2026", time: "05:30 PM", price: 499, img: evMusic, w: 768, h: 1024, mode: "Offline", organizer: "Coastline Collective", description: "A sunset 5K followed by live bands and beach food stalls on the sand." },
+  { slug: "chennai-heritage-walk", name: "Chennai Heritage Walk", category: "Culture", city: "Chennai", state: "Tamil Nadu", venue: "Mylapore Temple Quarter", date: "09 Nov 2026", time: "06:30 AM", price: 0, img: evKochi, w: 1024, h: 768, mode: "Offline", organizer: "Madras Legacy Trails", description: "A guided morning walk through 300-year-old streets, temples and markets." },
+  { slug: "delhi-open-art-market", name: "Delhi Open Art Market", category: "Arts", city: "Delhi", state: "Delhi", venue: "Sunder Nursery", date: "21 Nov 2026", time: "11:00 AM", price: 149, img: evMumbai, w: 1024, h: 768, mode: "Offline", organizer: "Delhi Art Week", description: "Eighty artists, print stalls, live mural painting and workshops under the trees." },
+  { slug: "national-skate-jam", name: "National Skate Jam", category: "Sports", city: "Bengaluru", state: "Karnataka", venue: "Skate Park Indiranagar", date: "14 Nov 2026", time: "04:00 PM", price: 99, img: clubSkate, w: 768, h: 1024, mode: "Offline", organizer: "India Skate Federation", description: "Open qualifiers, pro demos and a night session with DJ sets under the flyover." },
 ];
 
 export const featuredSlugs = events.slice(0, 5).map((e) => e.slug);
@@ -83,5 +87,17 @@ export const people = [
 ];
 
 export const cities = ["Bengaluru", "Mumbai", "Delhi", "Hyderabad", "Chennai", "Kochi", "Mangaluru", "Pune", "Kolkata"];
+
+export const whatsNext = [
+  ...live,
+  { label: "TRENDING", event: events[4]!, meta: "Selling fast" },
+];
+
+export const news = [
+  ...stories,
+  { slug: "esports-arena-boom", category: "Gaming", title: "Esports arenas boom as tier-2 cities cash in", date: "17 Sep 2026", img: evEsports, w: 1024, h: 768 },
+];
+
+export const upcoming = events.slice(7);
 
 export const formatPrice = (p: number) => (p === 0 ? "Free" : `₹${p.toLocaleString("en-IN")}`);
