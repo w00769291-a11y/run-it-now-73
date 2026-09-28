@@ -181,7 +181,7 @@ function Home() {
                   </div>
                 </Link>
               ))}
-              <Link to="/events" className="flex w-[60vw] shrink-0 snap-start flex-col justify-end border border-ink-border p-6 sm:w-[30vw] lg:w-[20vw]">
+              <Link to="/events" className="flex w-[78vw] shrink-0 snap-start flex-col justify-end border border-ink-border p-6 sm:w-[46vw] lg:w-[30vw]">
                 <p className="font-display text-4xl">See everything on today</p>
                 <ArrowRight className="mt-4 h-8 w-8 text-primary" />
               </Link>
