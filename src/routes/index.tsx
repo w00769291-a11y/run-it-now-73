@@ -77,7 +77,7 @@ function Home() {
             Every scene in the country, organised in one place. Pick a world and see what's on this week — in your city or across India.
           </p>
         </div>
-        <div className="mx-auto grid max-w-[1060px] grid-cols-2 gap-2 md:grid-cols-12 md:gap-2.5">
+        <div className="mx-auto grid max-w-[640px] grid-cols-2 gap-2 md:grid-cols-12 md:gap-2.5">
           {categories.map((c, i) => {
             const layout = [
               "col-span-2 md:col-span-5 md:row-span-2 aspect-[4/5]",
