@@ -281,7 +281,7 @@ function Home() {
         <div className="mx-auto grid max-w-[1480px] items-center gap-10 px-5 py-24 md:grid-cols-2 md:px-8 md:py-32">
           <div className="relative z-10">
             <Eyebrow dark>28 states · 700+ cities</Eyebrow>
-            <Lines text={["Discover", "India"]} className="text-[20vw] md:text-[10vw] xl:text-[160px]" />
+            <Lines text={["Discover", "EVENTS IN YOUR LOCALITY"]} className="text-[20vw] md:text-[10vw] xl:text-[160px]" />
             <p data-reveal className="mt-6 max-w-md text-lg text-ink-muted">
               From Bengaluru to Kochi. Mumbai to Hyderabad. Find what's happening across the country.
             </p>
